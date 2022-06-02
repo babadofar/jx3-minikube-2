@@ -46,7 +46,7 @@ releases:
   values:
   - ../../versionStream/charts/jxgh/bucketrepo/values.yaml.gotmpl
   - jx-values.yaml
-- chart: stable/docker-registry
+- chart: twuni/docker-registry
   name: docker-registry
   values:
   - ../../versionStream/charts/stable/docker-registry/values.yaml.gotmpl
