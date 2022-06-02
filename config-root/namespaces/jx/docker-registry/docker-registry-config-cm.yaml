@@ -3,15 +3,15 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: docker-registry-config
+  namespace: jx
   labels:
     app: docker-registry
-    chart: docker-registry-1.9.6
+    chart: docker-registry-2.1.0
     heritage: Helm
     release: docker-registry
     gitops.jenkins-x.io/pipeline: 'namespaces'
   annotations:
     meta.helm.sh/release-name: 'docker-registry'
-  namespace: jx
 data:
   config.yml: |-
     health:
@@ -21,6 +21,11 @@ data:
         threshold: 3
     http:
       addr: :5000
+      debug:
+        addr: :5001
+        prometheus:
+          enabled: false
+          path: /metrics
       headers:
         X-Content-Type-Options:
         - nosniff
