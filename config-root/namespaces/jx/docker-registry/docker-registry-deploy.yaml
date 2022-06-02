@@ -3,16 +3,16 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: docker-registry
+  namespace: jx
   labels:
     app: docker-registry
-    chart: docker-registry-1.9.6
+    chart: docker-registry-2.1.0
     release: docker-registry
     heritage: Helm
     gitops.jenkins-x.io/pipeline: 'namespaces'
   annotations:
     meta.helm.sh/release-name: 'docker-registry'
     wave.pusher.com/update-on-config-change: 'true'
-  namespace: jx
 spec:
   selector:
     matchLabels:
@@ -26,7 +26,8 @@ spec:
         app: docker-registry
         release: docker-registry
       annotations:
-        checksum/config: e5d095b42ca47e4617a20c87ff48dfdd7a790566a0761a4734dfb2b4e5aff4cd
+        checksum/config: d09c961f4bfb6f760fffc29d3d4b1d5e18393539671c7fe3e7a2368d2957b874
+        checksum/secret: 29741990c12a9eaebc9e07d92f1e3c5030617a47c435b02ca910e6a80bfd3ca7
     spec:
       securityContext:
         fsGroup: 1000
