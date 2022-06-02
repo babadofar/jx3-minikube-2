@@ -41,7 +41,7 @@ data:
         - needs-rebase
         repos:
         - babadofar/jx3-minikube-2
-      target_url: http://lighthouse-jx.192.168.49.2/merge/status
+      target_url: http://lighthouse-jx.192.168.49.2.nip.io/merge/status
 kind: ConfigMap
 metadata:
   creationTimestamp: null
